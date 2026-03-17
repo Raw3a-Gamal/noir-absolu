@@ -6,7 +6,7 @@
 
 ## Live Demo
 
-🔗 **[noirabsolu.netlify.app](https://noirabsolu.netlify.app)** ← _replace with your deployed URL_
+🔗 **[noir-absolu.netlify.app](https://noir-absolu.netlify.app)**
 
 ---
 
@@ -14,7 +14,7 @@
 
 ![Noir Absolu — Hero Section](https://placehold.co/1440x900/0a0a0a/c9a96e?text=Screenshot+coming+soon)
 
-_Add a real screenshot by running the project, taking a full-page capture, and committing it as `screenshot.png`._
+_Full-page screenshot — see the [live demo](https://noir-absolu.netlify.app) for the animated experience._
 
 ---
 
@@ -148,5 +148,5 @@ This is a **freelance portfolio concept project** — not affiliated with any re
 ---
 
 <p align="center">
-  <sub>Designed &amp; built by <a href="https://github.com/YOUR_USERNAME">@YOUR_USERNAME</a> · 2024</sub>
+  <sub>Designed &amp; built by <a href="https://github.com/Raw3a-Gamal">@Raw3a-Gamal</a> · 2024</sub>
 </p>
