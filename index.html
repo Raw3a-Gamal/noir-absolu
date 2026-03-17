@@ -1,0 +1,1052 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Noir Absolu — The darkness you wear</title>
+  <meta name="description" content="Noir Absolu — luxury extrait de parfum. Crafted in darkness, refined by time. Discover the private collection of oud, saffron, and smoked amber."/>
+  <meta name="theme-color" content="#0A0A0A"/>
+
+  <!-- Open Graph -->
+  <meta property="og:title"       content="Noir Absolu — The darkness you wear"/>
+  <meta property="og:description" content="Luxury extrait de parfum. Crafted in darkness, refined by time. Discover the private collection."/>
+  <meta property="og:type"        content="website"/>
+  <meta property="og:url"         content="https://noirabsolu.com"/>
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card"        content="summary_large_image"/>
+  <meta name="twitter:title"       content="Noir Absolu — The darkness you wear"/>
+  <meta name="twitter:description" content="Luxury extrait de parfum. Crafted in darkness, refined by time."/>
+
+  <!-- Favicon: gold "N" on black, inline SVG -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230A0A0A'/%3E%3Ctext x='16' y='23' font-size='19' font-family='Georgia%2Cserif' text-anchor='middle' fill='%23C9A96E'%3EN%3C/text%3E%3C/svg%3E"/>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@200;300;400&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            gold:"#C9A96E", noir:"#0A0A0A", carbon:"#141414", ash:"#1E1C1A",
+            ivory:"#F5F0E8", stone:"#A89F94", graphite:"#5C564F", smoke:"#2A2520",
+            primary:"#C9A96E", "background-dark":"#0A0A0A", "stone-muted":"#A89F94",
+            richblack:"#0A0A0A", onPrimary:"#0A0A0A",
+            brand:{black:"#0A0A0A", ivory:"#F5F0E8", gold:"#C9A96E", stone:"#A89F94"},
+          },
+          fontFamily:{
+            serif:["Cormorant Garamond","serif"],
+            jost:["Jost","sans-serif"],
+            headline:["Cormorant Garamond","serif"],
+            "serif-display":["Cormorant Garamond","serif"],
+            body:["Jost","sans-serif"],
+            label:["Jost","sans-serif"],
+          },
+          letterSpacing:{ luxury:"0.3em", tagline:"0.4em" },
+          borderRadius:{ DEFAULT:"0.125rem", lg:"0.25rem", xl:"0.5rem", full:"0.75rem" },
+          screens:{ sm:"640px", md:"768px", lg:"1024px", xl:"1280px", "2xl":"1536px" },
+        },
+      },
+    };
+  </script>
+
+  <style>
+    /* ══════════════════════════════════════════════════
+       DESIGN TOKENS
+    ══════════════════════════════════════════════════ */
+    :root {
+      --color-bg:      #0A0A0A;
+      --color-accent:  #C9A96E;
+      --color-heading: #F5F0E8;
+      --color-body:    #A89F94;
+      --font-display:  'Cormorant Garamond', Georgia, serif;
+      --font-body:     'Jost', system-ui, sans-serif;
+      --ease-luxury:   cubic-bezier(0.25, 0.1, 0.0, 1.0);
+      --ease-reveal:   cubic-bezier(0.16, 1, 0.3, 1);
+      --ease-hover:    cubic-bezier(0.4, 0, 0.2, 1);
+      --ease-out-expo: cubic-bezier(0.19, 1, 0.22, 1);
+      --gutter:        clamp(1.25rem, 5vw, 5rem);
+      --section-py:    clamp(4rem, 8vw, 10rem);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      background-color: #0A0A0A;
+      color: #F5F0E8;
+      font-family: var(--font-body);
+      font-weight: 200;
+      line-height: 1.7;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      overflow-wrap: break-word;
+      word-break: break-word;
+    }
+    body.is-loading { overflow: hidden; }
+    img { max-width: 100%; display: block; }
+
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 200, 'GRAD' 0, 'opsz' 24;
+    }
+
+    /* ══════════════════════════════════════════════════
+       PRELOADER
+    ══════════════════════════════════════════════════ */
+    #preloader {
+      position: fixed; inset: 0; z-index: 9999;
+      background: #0A0A0A;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center; gap: 28px;
+      transition: opacity 900ms var(--ease-luxury), visibility 900ms var(--ease-luxury);
+    }
+    #preloader.hidden { opacity: 0; visibility: hidden; pointer-events: none; }
+    .preloader-brand {
+      font-family: var(--font-display);
+      font-size: clamp(0.9rem, 2.5vw, 1.5rem);
+      font-weight: 300;
+      letter-spacing: 0.5em;
+      text-transform: uppercase;
+      color: #F5F0E8;
+      animation: preloader-pulse 1.6s var(--ease-hover) infinite;
+    }
+    .preloader-bar {
+      width: 40px; height: 1px; background: #C9A96E;
+      transform-origin: left center;
+      animation: preloader-bar 1.6s var(--ease-hover) infinite;
+    }
+    @keyframes preloader-pulse { 0%,100%{opacity:1} 50%{opacity:0.18} }
+    @keyframes preloader-bar   { 0%,100%{transform:scaleX(0.2);opacity:0.4} 50%{transform:scaleX(1);opacity:1} }
+
+    /* ══════════════════════════════════════════════════
+       CURSOR GLOW  (fine pointer / desktop only)
+    ══════════════════════════════════════════════════ */
+    #cursor-glow {
+      position: fixed; top: 0; left: 0;
+      width: 520px; height: 520px;
+      pointer-events: none; z-index: 9990;
+      border-radius: 50%;
+      background: radial-gradient(circle at center,
+        rgba(201,169,110,0.07) 0%, rgba(201,169,110,0.025) 35%, transparent 68%);
+      transform: translate(-50%,-50%);
+      opacity: 0; transition: opacity 500ms ease; will-change: transform;
+    }
+    #cursor-glow.active { opacity: 1; }
+
+    /* ══════════════════════════════════════════════════
+       NAVIGATION
+    ══════════════════════════════════════════════════ */
+    #nav {
+      transition: background-color 400ms var(--ease-hover),
+                  border-color     400ms var(--ease-hover),
+                  backdrop-filter  400ms var(--ease-hover);
+    }
+    #nav.scrolled {
+      background-color: rgba(10,10,10,0.93);
+      border-bottom: 1px solid rgba(201,169,110,0.12);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+    /* Desktop nav link — underline draw left→right */
+    .nav-link { position: relative; padding-bottom: 3px; }
+    .nav-link::after {
+      content: ''; position: absolute; bottom: 0; left: 0;
+      width: 100%; height: 1px; background: #C9A96E;
+      transform: scaleX(0); transform-origin: left center;
+      transition: transform 320ms var(--ease-luxury);
+    }
+    .nav-link:hover::after { transform: scaleX(1); }
+    .nav-link:hover { color: #F5F0E8; }
+
+    /* ══════════════════════════════════════════════════
+       HAMBURGER BUTTON
+    ══════════════════════════════════════════════════ */
+    #menu-toggle { cursor: pointer; }
+    .ham-line {
+      display: block; width: 22px; height: 1px;
+      background: #F5F0E8;
+      transition: transform 380ms var(--ease-luxury),
+                  opacity   280ms ease,
+                  width     280ms ease;
+    }
+    #menu-toggle[aria-expanded="true"] .ham-line:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+    #menu-toggle[aria-expanded="true"] .ham-line:nth-child(2) { opacity: 0; width: 0; }
+    #menu-toggle[aria-expanded="true"] .ham-line:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+
+    /* ══════════════════════════════════════════════════
+       MOBILE MENU DRAWER
+    ══════════════════════════════════════════════════ */
+    #menu-overlay {
+      position: fixed; inset: 0; z-index: 9985;
+      background: rgba(10,10,10,0.65);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      opacity: 0; visibility: hidden;
+      transition: opacity 450ms ease, visibility 450ms ease;
+    }
+    #menu-overlay.open { opacity: 1; visibility: visible; }
+
+    #mobile-menu {
+      position: fixed; top: 0; right: 0;
+      width: min(300px, 82vw); height: 100dvh;
+      background: #0D0D0D;
+      border-left: 1px solid rgba(201,169,110,0.1);
+      z-index: 9986;
+      display: flex; flex-direction: column;
+      padding: 7rem 2.25rem 3rem;
+      transform: translateX(100%);
+      transition: transform 600ms var(--ease-luxury);
+      overflow-y: auto;
+    }
+    #mobile-menu.open { transform: translateX(0); }
+
+    .mob-nav-link {
+      font-family: var(--font-body);
+      font-size: 0.7rem; font-weight: 300;
+      text-transform: uppercase; letter-spacing: 0.32em;
+      color: #A89F94;
+      padding-block: 0.85rem;
+      border-bottom: 1px solid rgba(201,169,110,0.08);
+      transition: color 300ms ease;
+    }
+    .mob-nav-link:hover { color: #F5F0E8; }
+
+    /* ══════════════════════════════════════════════════
+       HERO ENTRANCE
+    ══════════════════════════════════════════════════ */
+    .hero-line { opacity: 0; transform: translateY(22px); }
+    #hero.hero-ready .hero-line {
+      animation: hero-enter 1100ms var(--ease-out-expo) forwards;
+    }
+    #hero.hero-ready .hero-line:nth-child(1) { animation-delay:  60ms; }
+    #hero.hero-ready .hero-line:nth-child(2) { animation-delay: 220ms; }
+    #hero.hero-ready .hero-line:nth-child(3) { animation-delay: 400ms; }
+    .hero-scroll-indicator { opacity: 0; }
+    #hero.hero-ready .hero-scroll-indicator {
+      animation: hero-fade 1000ms var(--ease-out-expo) 700ms forwards;
+    }
+    @keyframes hero-enter { to { opacity:1; transform:translateY(0); } }
+    @keyframes hero-fade  { to { opacity:1; } }
+
+    /* ══════════════════════════════════════════════════
+       SCROLL REVEAL
+    ══════════════════════════════════════════════════ */
+    .reveal {
+      opacity: 0; transform: translateY(28px);
+      transition: opacity 850ms var(--ease-reveal),
+                  transform 850ms var(--ease-reveal);
+    }
+    .reveal.is-visible { opacity: 1; transform: translateY(0); }
+
+    /* ══════════════════════════════════════════════════
+       INGREDIENT MARQUEE
+    ══════════════════════════════════════════════════ */
+    .marquee-outer { overflow: hidden; }
+    .marquee-track {
+      display: flex; width: max-content;
+      animation: marquee 32s linear infinite;
+    }
+    .marquee-track:hover { animation-play-state: paused; }
+    @keyframes marquee { from{transform:translateX(0)} to{transform:translateX(-50%)} }
+
+    /* ══════════════════════════════════════════════════
+       PARALLAX "ABSOLU"
+    ══════════════════════════════════════════════════ */
+    #parallax-absolu { overflow: hidden; }
+    .parallax-word {
+      font-family: var(--font-display); font-weight: 300;
+      color: transparent;
+      -webkit-text-stroke: 1px rgba(201,169,110,0.16);
+      font-size: clamp(4rem, 22vw, 22rem);
+      line-height: 0.82; letter-spacing: -0.03em;
+      user-select: none; will-change: transform;
+      display: block; text-align: center; padding: 1.5rem 0;
+      white-space: nowrap;
+    }
+
+    /* ══════════════════════════════════════════════════
+       HOVER EFFECTS
+    ══════════════════════════════════════════════════ */
+    .fragrance-card-gradient {
+      background: linear-gradient(180deg,rgba(30,30,30,0.8) 0%,rgba(10,10,10,1) 100%);
+    }
+    .glow-border {
+      transition: transform 700ms var(--ease-luxury),
+                  box-shadow 700ms var(--ease-hover),
+                  border-color 700ms var(--ease-hover);
+    }
+    .glow-border:hover {
+      transform: translateY(-4px) !important;
+      box-shadow: 0 12px 40px rgba(201,169,110,0.13), 0 0 0 1px rgba(201,169,110,0.5);
+      border-color: rgba(201,169,110,0.5) !important;
+    }
+    .scent-card {
+      background-color: transparent;
+      transition: transform 500ms var(--ease-hover),
+                  border-color 500ms var(--ease-hover),
+                  background-color 500ms var(--ease-hover);
+    }
+    .scent-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(201,169,110,0.85) !important;
+      background-color: rgba(201,169,110,0.028);
+    }
+
+    /* ══════════════════════════════════════════════════
+       CTA BUTTON — gold fill rises from bottom
+    ══════════════════════════════════════════════════ */
+    .btn-discovery {
+      position: relative; display: inline-block;
+      overflow: hidden; cursor: pointer;
+      transition: color 450ms var(--ease-luxury);
+    }
+    .btn-discovery::before {
+      content: ''; position: absolute; left:0; right:0; bottom:0;
+      height: 100%; background: #C9A96E;
+      transform: translateY(101%);
+      transition: transform 550ms var(--ease-luxury);
+      z-index: 0;
+    }
+    .btn-discovery:hover::before { transform: translateY(0); }
+    .btn-discovery .btn-text { position: relative; z-index: 1; display: inline-block; }
+    .btn-discovery:hover { color: #0A0A0A; }
+
+    /* ══════════════════════════════════════════════════
+       EDITORIAL QUOTE MARK
+    ══════════════════════════════════════════════════ */
+    .quote-mark {
+      font-family: var(--font-display);
+      font-size: clamp(4rem, 12vw, 10rem);
+      font-weight: 300;
+      color: rgba(201,169,110,0.15);
+      line-height: 0.5;
+      user-select: none;
+    }
+
+    /* ══════════════════════════════════════════════════
+       REDUCED MOTION
+    ══════════════════════════════════════════════════ */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+      .marquee-track { animation: none; }
+      .hero-line, .hero-scroll-indicator { opacity: 1; transform: none; }
+      .reveal { opacity: 1; transform: none; }
+    }
+
+    /* ══════════════════════════════════════════════════
+       RESPONSIVE — MOBILE  (< 768px)
+    ══════════════════════════════════════════════════ */
+    @media (max-width: 767px) {
+      .parallax-word {
+        font-size: clamp(2.8rem, 16vw, 4rem);
+        -webkit-text-stroke-width: 0.5px;
+        letter-spacing: -0.02em;
+      }
+      .scent-img-wrap { aspect-ratio: 4 / 3 !important; }
+      .scent-card:hover  { transform: none; }
+      .glow-border:hover { transform: none !important; }
+      .btn-discovery { display: block; width: 100%; text-align: center; }
+      .card-pad { padding: 1.5rem !important; }
+      .footer-links { gap: 1rem !important; }
+    }
+
+    /* ══════════════════════════════════════════════════
+       RESPONSIVE — TABLET  (768px – 1023px)
+    ══════════════════════════════════════════════════ */
+    @media (min-width: 768px) and (max-width: 1023px) {
+      :root { --section-py: clamp(3.5rem, 8vw, 7rem); --gutter: clamp(2rem, 4vw, 3.5rem); }
+      .parallax-word { font-size: clamp(5rem, 18vw, 12rem); }
+      #story-copy { padding-left: 3rem !important; padding-right: 3rem !important; }
+    }
+  </style>
+</head>
+
+<body class="is-loading">
+
+<!-- ─── PRELOADER ──────────────────────────────────────────────────────── -->
+<div id="preloader" role="status" aria-label="Loading Noir Absolu">
+  <span class="preloader-brand">Noir Absolu</span>
+  <div class="preloader-bar" aria-hidden="true"></div>
+</div>
+
+<!-- ─── CURSOR GLOW ────────────────────────────────────────────────────── -->
+<div id="cursor-glow" aria-hidden="true"></div>
+
+<!-- ─── MOBILE MENU DRAWER ────────────────────────────────────────────── -->
+<div id="menu-overlay" aria-hidden="true"></div>
+<nav id="mobile-menu"
+     aria-hidden="true"
+     aria-label="Mobile navigation"
+     class="font-jost">
+  <a href="#story"      class="mob-nav-link block">Our Story</a>
+  <a href="#notes"      class="mob-nav-link block">Scent Profile</a>
+  <a href="#collection" class="mob-nav-link block">Collection</a>
+  <a href="#cta"        class="mob-nav-link block">Bespoke</a>
+  <div class="mt-auto pt-10 flex items-center gap-6">
+    <button aria-label="Search"
+            class="text-stone hover:text-ivory transition-colors duration-300">
+      <span class="material-symbols-outlined text-[20px]" aria-hidden="true">search</span>
+    </button>
+    <button aria-label="Shopping bag"
+            class="text-stone hover:text-ivory transition-colors duration-300">
+      <span class="material-symbols-outlined text-[20px]" aria-hidden="true">shopping_bag</span>
+    </button>
+  </div>
+  <p class="font-jost text-[9px] tracking-[0.3em] text-graphite uppercase mt-6">
+    © 2024 Noir Absolu
+  </p>
+</nav>
+
+
+<!-- ════════════════════════════════════════════════════════════════════════
+     1.  FIXED NAVIGATION
+════════════════════════════════════════════════════════════════════════ -->
+<nav id="nav"
+     aria-label="Primary navigation"
+     class="fixed top-0 left-0 right-0 z-50
+            flex justify-between items-center w-full
+            px-5 md:px-10 lg:px-12 py-5 md:py-7 bg-transparent">
+
+  <a href="#hero"
+     class="font-jost text-xs md:text-sm font-light tracking-[0.3em] text-ivory uppercase flex-shrink-0"
+     aria-label="Noir Absolu — home">
+    NOIR ABSOLU
+  </a>
+
+  <div class="hidden md:flex items-center gap-8 lg:gap-10">
+    <a href="#story"      class="nav-link font-jost text-[11px] uppercase tracking-[0.3em] text-stone transition-colors duration-300">Our Story</a>
+    <a href="#notes"      class="nav-link font-jost text-[11px] uppercase tracking-[0.3em] text-stone transition-colors duration-300">Scent Profile</a>
+    <a href="#collection" class="nav-link font-jost text-[11px] uppercase tracking-[0.3em] text-stone transition-colors duration-300">Collection</a>
+    <a href="#cta"        class="nav-link font-jost text-[11px] uppercase tracking-[0.3em] text-stone transition-colors duration-300">Bespoke</a>
+  </div>
+
+  <div class="flex items-center gap-4 md:gap-5">
+    <button aria-label="Search"
+            class="text-ivory hover:text-gold transition-colors duration-300">
+      <span class="material-symbols-outlined text-[20px] md:text-[24px]" aria-hidden="true">search</span>
+    </button>
+    <button aria-label="Shopping bag"
+            class="text-ivory hover:text-gold transition-colors duration-300">
+      <span class="material-symbols-outlined text-[20px] md:text-[24px]" aria-hidden="true">shopping_bag</span>
+    </button>
+    <button id="menu-toggle"
+            class="md:hidden flex flex-col justify-center items-end gap-[5px] w-7 h-7 flex-shrink-0"
+            aria-label="Open navigation menu"
+            aria-expanded="false"
+            aria-controls="mobile-menu">
+      <span class="ham-line" aria-hidden="true"></span>
+      <span class="ham-line" style="width:16px" aria-hidden="true"></span>
+      <span class="ham-line" aria-hidden="true"></span>
+    </button>
+  </div>
+</nav>
+
+
+<!-- ════════════════════════════════════════════════════════════════════════
+     2.  HERO
+════════════════════════════════════════════════════════════════════════ -->
+<section id="hero"
+         aria-label="Hero"
+         class="relative flex h-screen w-full flex-col items-center justify-between overflow-hidden">
+
+  <div class="absolute inset-0 pointer-events-none z-0"
+       style="background:radial-gradient(ellipse at 50% 55%,#16120a 0%,#0A0A0A 65%)"
+       aria-hidden="true"></div>
+  <div class="absolute inset-0 pointer-events-none z-0 bg-gradient-to-b from-transparent via-noir/10 to-black/70"
+       aria-hidden="true"></div>
+
+  <div class="h-20 md:h-24 flex-shrink-0" aria-hidden="true"></div>
+
+  <div class="flex-1 flex flex-col items-center justify-center px-5 relative z-10 w-full">
+    <div class="flex flex-col items-center text-center w-full max-w-5xl mx-auto">
+
+      <h1 class="hero-line font-serif text-ivory font-light leading-none mb-8 md:mb-10"
+          style="font-size:clamp(2.5rem,8vw,7rem); letter-spacing:0.02em;">
+        Noir Absolu
+      </h1>
+
+      <div class="hero-line w-[50px] md:w-[60px] h-[1px] bg-gold mb-8 md:mb-10"
+           aria-hidden="true"></div>
+
+      <p class="hero-line font-jost text-stone font-[200] uppercase"
+         style="font-size:clamp(0.6rem,1.8vw,0.9rem); letter-spacing:clamp(0.3em,2vw,0.42em);">
+        The darkness you wear
+      </p>
+    </div>
+  </div>
+
+  <div class="hero-scroll-indicator pb-10 md:pb-12 z-10 flex flex-col items-center gap-3"
+       aria-hidden="true">
+    <div class="w-[1px] h-1 rounded-full bg-gold"></div>
+    <div class="w-[1px] h-10 md:h-14 bg-gradient-to-b from-gold to-transparent"></div>
+    <span class="font-jost text-[9px] uppercase tracking-[0.3em] text-stone opacity-55 mt-1">Explore</span>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════════════════════════
+     3.  INGREDIENT MARQUEE
+════════════════════════════════════════════════════════════════════════ -->
+<section id="marquee"
+         class="marquee-outer w-full border-t border-b py-4"
+         style="border-color:rgba(201,169,110,0.14)"
+         aria-hidden="true">
+  <div class="marquee-track">
+    <span class="inline-flex items-center gap-8 md:gap-12 px-8 md:px-12">
+      <span class="font-serif text-lg md:text-[1.35rem] font-light text-ivory">Oud</span>
+      <span class="text-gold text-[7px]">✦</span>
+      <span class="font-serif text-lg md:text-[1.35rem] font-light text-ivory">Saffron</span>
+      <span class="text-gold text-[7px]">✦</span>
+      <span class="font-serif text-lg md:text-[1.35rem] font-light text-ivory">Black Amber</span>
+      <span class="text-gold text-[7px]">✦</span>
+      <span class="font-serif text-lg md:text-[1.35rem] font-light text-ivory">Vetiver</span>
+      <span class="text-gold text-[7px]">✦</span>
+      <span class="font-serif text-lg md:text-[1.35rem] font-light text-ivory">Iris</span>
+      <span class="text-gold text-[7px]">✦</span>
+      <span class="font-serif text-lg md:text-[1.35rem] font-light text-ivory">Bergamot</span>
+      <span class="text-gold text-[7px]">✦</span>
+      <span class="font-serif text-lg md:text-[1.35rem] font-light text-ivory">Midnight Rose</span>
+      <span class="text-gold text-[7px]">✦</span>
+      <span class="font-serif text-lg md:text-[1.35rem] font-light text-ivory">Patchouli</span>
+      <span class="text-gold text-[7px]">✦</span>
+      <span class="font-serif text-lg md:text-[1.35rem] font-light text-ivory">Black Pepper</span>
+      <span class="text-gold text-[7px]">✦</span>
+    </span>
+    <!-- Duplicate for seamless loop -->
+    <span class="inline-flex items-center gap-8 md:gap-12 px-8 md:px-12">
+      <span class="font-serif text-lg md:text-[1.35rem] font-light text-ivory">Oud</span>
+      <span class="text-gold text-[7px]">✦</span>
+      <span class="font-serif text-lg md:text-[1.35rem] font-light text-ivory">Saffron</span>
+      <span class="text-gold text-[7px]">✦</span>
+      <span class="font-serif text-lg md:text-[1.35rem] font-light text-ivory">Black Amber</span>
+      <span class="text-gold text-[7px]">✦</span>
+      <span class="font-serif text-lg md:text-[1.35rem] font-light text-ivory">Vetiver</span>
+      <span class="text-gold text-[7px]">✦</span>
+      <span class="font-serif text-lg md:text-[1.35rem] font-light text-ivory">Iris</span>
+      <span class="text-gold text-[7px]">✦</span>
+      <span class="font-serif text-lg md:text-[1.35rem] font-light text-ivory">Bergamot</span>
+      <span class="text-gold text-[7px]">✦</span>
+      <span class="font-serif text-lg md:text-[1.35rem] font-light text-ivory">Midnight Rose</span>
+      <span class="text-gold text-[7px]">✦</span>
+      <span class="font-serif text-lg md:text-[1.35rem] font-light text-ivory">Patchouli</span>
+      <span class="text-gold text-[7px]">✦</span>
+      <span class="font-serif text-lg md:text-[1.35rem] font-light text-ivory">Black Pepper</span>
+      <span class="text-gold text-[7px]">✦</span>
+    </span>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════════════════════════
+     4.  PRODUCT SPLIT SECTION
+════════════════════════════════════════════════════════════════════════ -->
+<section id="story"
+         aria-labelledby="story-heading"
+         class="w-full flex flex-col md:flex-row bg-noir overflow-hidden border-t border-white/5">
+
+  <!-- SVG bottle illustration -->
+  <div class="w-full md:w-1/2 h-[260px] md:h-auto md:min-h-screen
+              flex items-center justify-center bg-[#070707] relative flex-shrink-0"
+       aria-hidden="true">
+    <div class="absolute inset-0 pointer-events-none"
+         style="background:radial-gradient(ellipse at center,transparent 30%,rgba(10,10,10,0.7) 100%)"></div>
+    <svg class="opacity-55 w-40 md:w-64 lg:w-72 h-auto"
+         fill="none" viewBox="0 0 300 500" xmlns="http://www.w3.org/2000/svg"
+         role="img" aria-label="Perfume bottle architectural drawing">
+      <rect height="250" stroke="#C9A96E" stroke-width="0.5" width="150" x="75" y="150"/>
+      <rect height="70"  stroke="#C9A96E" stroke-width="0.5" width="80"  x="110" y="80"/>
+      <path d="M75 180H225M75 370H225" stroke="#C9A96E" stroke-dasharray="4 4" stroke-width="0.5"/>
+      <line opacity="0.25" stroke="#C9A96E" stroke-width="0.2" x1="150" x2="150" y1="80" y2="400"/>
+      <circle cx="150" cy="275" r="40" stroke="#C9A96E" stroke-width="0.5"/>
+      <path d="M40 100L60 80"    stroke="#C9A96E" stroke-width="0.8"/>
+      <path d="M240 420L260 400" stroke="#C9A96E" stroke-width="0.8"/>
+      <path d="M260 100L240 80"  stroke="#C9A96E" stroke-width="0.8"/>
+      <path d="M40 420L60 400"   stroke="#C9A96E" stroke-width="0.8"/>
+    </svg>
+  </div>
+
+  <!-- Brand copy -->
+  <div id="story-copy"
+       class="w-full md:w-1/2 flex flex-col justify-center
+              px-6 md:px-14 lg:px-24 py-14 md:py-24">
+    <div class="max-w-lg reveal">
+      <p class="font-jost text-[11px] uppercase tracking-[0.35em] text-gold mb-6 md:mb-8">The Atelier</p>
+      <h2 id="story-heading"
+          class="font-serif text-ivory font-light leading-[1.1] mb-6 md:mb-8"
+          style="font-size:clamp(1.75rem,4vw,3.25rem);">
+        Born from shadow,<br/>refined by time
+      </h2>
+      <div class="w-16 md:w-20 h-[1px] bg-gold mb-8 md:mb-12" aria-hidden="true"></div>
+      <div class="space-y-5 md:space-y-7">
+        <p class="font-jost text-stone font-[200] text-sm md:text-base leading-[1.9]">
+          Founded in the quietude of a centuries-old atelier, Noir Absolu emerged from a singular
+          obsession: to capture the profound elegance of the unseen.
+        </p>
+        <p class="font-jost text-stone font-[200] text-sm md:text-base leading-[1.9]">
+          Every vessel is a testament to the slow art of traditional perfumery. We allow our
+          extraits to macerate in darkness for no less than twelve moon cycles, ensuring a depth
+          that unfolds only on the warmth of the skin.
+        </p>
+        <p class="font-jost text-stone font-[200] text-sm md:text-base leading-[1.9] hidden md:block">
+          In an age of speed, we choose the deliberate path. Our ingredients are ethically
+          sourced from the fringes of the world, selected for their purity.
+        </p>
+      </div>
+      <div class="mt-10 md:mt-14">
+        <a class="font-jost text-[11px] uppercase tracking-[0.3em] text-ivory
+                  border-b border-gold/45 pb-2 hover:border-gold transition-all duration-300"
+           href="#">Discover the Archive</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════════════════════════
+     5.  PARALLAX "ABSOLU"
+════════════════════════════════════════════════════════════════════════ -->
+<section id="parallax-absolu"
+         class="w-full bg-noir border-t border-white/5 py-6 md:py-8 overflow-hidden"
+         aria-hidden="true">
+  <span class="parallax-word" id="parallax-word">ABSOLU</span>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════════════════════════
+     6.  FRAGRANCE NOTES GRID
+════════════════════════════════════════════════════════════════════════ -->
+<section id="notes"
+         aria-labelledby="notes-heading"
+         class="w-full bg-noir border-t border-white/5"
+         style="padding:var(--section-py) var(--gutter)">
+  <div class="max-w-screen-xl mx-auto">
+
+    <header class="mb-12 md:mb-20 text-center reveal">
+      <h2 id="notes-heading"
+          class="font-serif text-ivory font-light tracking-tight mb-4 md:mb-5"
+          style="font-size:clamp(1.75rem,5vw,4.5rem);">Scent Profile</h2>
+      <p class="font-jost uppercase tracking-[0.4em] text-gold text-[11px]">
+        An Olfactory Journey through Darkness and Light
+      </p>
+    </header>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6 lg:gap-7">
+
+      <!-- Card I: Top Notes -->
+      <article class="scent-card card-pad border border-gold/20 p-6 md:p-8 lg:p-12
+                      flex flex-col gap-6 md:gap-8 group reveal">
+        <div>
+          <span class="font-serif text-5xl md:text-7xl text-gold block mb-6 md:mb-10"
+                style="line-height:1" aria-hidden="true">I</span>
+          <p class="font-jost uppercase tracking-[0.3em] text-[11px] text-stone mb-3">Top Notes</p>
+          <h3 class="font-serif text-ivory font-light leading-tight"
+              style="font-size:clamp(1.3rem,2.5vw,2rem);">Black Pepper &amp;<br/>Bergamot</h3>
+        </div>
+        <div class="scent-img-wrap overflow-hidden grayscale opacity-40
+                    group-hover:opacity-60 transition-opacity duration-700"
+             style="aspect-ratio:3/4">
+          <img loading="lazy"
+               alt="Close-up of black pepper corns and bergamot citrus peel"
+               class="object-cover w-full h-full"
+               src="https://lh3.googleusercontent.com/aida-public/AB6AXuBb4fow_SW6eVGnOTYBh6V0AFo7tF8ivtz90wF80kWau_u_bTovCfLKslvWr2AIIEEbbfX2vOuezvdBCDH0D0Bra8Hg60uy_SGuHenOrV_q8yvOH8nkWNtZKiccTaFlWXwvvRHHqNd5rdnGQ-4Ywsxtb-tWidV1hb9vhGBVQx-lxYEHvpRGuyKLV03D0aG6ss116BgUVQIvoX1HVa0K-tPWb3Qg9vRj2A-U6J-doQp0ShSwK-ddMEw7ilr7XYrtURlp4tKDM5Xx1bw"/>
+        </div>
+        <p class="font-jost text-stone text-sm leading-relaxed font-[200]">
+          A sharp, invigorating awakening. The spice of crushed black pepper meets the citrus
+          brilliance of Calabrian bergamot, cutting through the shadows.
+        </p>
+      </article>
+
+      <!-- Card II: Heart Notes -->
+      <article class="scent-card card-pad border border-gold/20 p-6 md:p-8 lg:p-12
+                      flex flex-col gap-6 md:gap-8 group reveal"
+               style="transition-delay:120ms">
+        <div>
+          <span class="font-serif text-5xl md:text-7xl text-gold block mb-6 md:mb-10"
+                style="line-height:1" aria-hidden="true">II</span>
+          <p class="font-jost uppercase tracking-[0.3em] text-[11px] text-stone mb-3">Heart Notes</p>
+          <h3 class="font-serif text-ivory font-light leading-tight"
+              style="font-size:clamp(1.3rem,2.5vw,2rem);">Midnight Rose &amp;<br/>Saffron</h3>
+        </div>
+        <div class="scent-img-wrap overflow-hidden grayscale opacity-40
+                    group-hover:opacity-60 transition-opacity duration-700"
+             style="aspect-ratio:3/4">
+          <img loading="lazy"
+               alt="A dark crimson rose photographed in moody shadow"
+               class="object-cover w-full h-full"
+               src="https://lh3.googleusercontent.com/aida-public/AB6AXuDZJeQ_f0-O2RsJgxmAI0D7BPs6dxBEtmi7VTAypjwX-WO_YIstS8uFlRObk8_59DcT3saFHeQCLyT6DvDfhGsc0a3POYkHQZu5vwapAQemeoxU2a5BTKy0Z6304uyOPyMy1ZQXNdYSYxhWMyXoNYYZS_1Ob97Hh33wK8HuTtpY_GhnvWRdhUCoXAb8BB--KnzrBCMgfUHG_lyw1v2x2Z3YurscJak113lGVrqtUg9gHa56kWfgn4x_e-FvRpPtxagVM9uEy52yGXI"/>
+        </div>
+        <p class="font-jost text-stone text-sm leading-relaxed font-[200]">
+          The core reveals a velvet darkness. Intoxicating Bulgarian rose intertwined with
+          the leathery warmth of rare saffron threads.
+        </p>
+      </article>
+
+      <!-- Card III: Base Notes — spans 2 cols on tablet to avoid orphan -->
+      <article class="scent-card card-pad border border-gold/20 p-6 md:p-8 lg:p-12
+                      flex flex-col gap-6 md:gap-8 group reveal
+                      md:col-span-2 lg:col-span-1"
+               style="transition-delay:240ms">
+        <div>
+          <span class="font-serif text-5xl md:text-7xl text-gold block mb-6 md:mb-10"
+                style="line-height:1" aria-hidden="true">III</span>
+          <p class="font-jost uppercase tracking-[0.3em] text-[11px] text-stone mb-3">Base Notes</p>
+          <h3 class="font-serif text-ivory font-light leading-tight"
+              style="font-size:clamp(1.3rem,2.5vw,2rem);">Oud Wood &amp;<br/>Smoked Amber</h3>
+        </div>
+        <div class="scent-img-wrap overflow-hidden grayscale opacity-40
+                    group-hover:opacity-60 transition-opacity duration-700"
+             style="aspect-ratio:3/4">
+          <img loading="lazy"
+               alt="Dark textured oud wood with rising incense smoke"
+               class="object-cover w-full h-full"
+               src="https://lh3.googleusercontent.com/aida-public/AB6AXuC6ZkPbw8dJdR_HWllYw3krNaKGKg75ztSvGzS2glpvqSfsjSD12FbBU9hj8cBMhKCvlxFZFLdx5BZ3gX81wscIN2ek50iBid7F1U3iXLbUw9SPxtgrkB8-Q5OX2JC2xGL3M40c3DNw5BPEtTf5i6eDicRIyi95SEr89AwQ_oXWFQL3-_jjmXlRM52khqhNA26psFWktZdYtNGKS9IZbJ9a0hVp3cX0ygYosiv8RGXYqlNddDhKni15LdCocMwb4NrIm2vW2PFXMz8"/>
+        </div>
+        <p class="font-jost text-stone text-sm leading-relaxed font-[200]">
+          A lingering, resonant finish. The ancient depth of agarwood anchored by the
+          smoldering resinous sweetness of amber and patchouli.
+        </p>
+      </article>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════════════════════════
+     7.  EDITORIAL QUOTE
+════════════════════════════════════════════════════════════════════════ -->
+<section id="quote"
+         aria-label="Founding perfumer quote"
+         class="w-full bg-noir border-t border-white/5 flex items-center justify-center"
+         style="padding:clamp(4rem,10vw,13rem) var(--gutter)">
+  <div class="max-w-4xl mx-auto text-center">
+    <div class="flex justify-center mb-10 md:mb-14 reveal" aria-hidden="true">
+      <div class="h-[1px] w-14 bg-gold"></div>
+    </div>
+    <div class="quote-mark reveal" aria-hidden="true">&ldquo;</div>
+    <blockquote class="reveal" style="margin-top:-1rem">
+      <p class="font-serif text-ivory font-light leading-[1.25]"
+         style="font-size:clamp(1.2rem,3.8vw,3.25rem); letter-spacing:0.01em;">
+        Every Noir Absolu creation is an architectural masterpiece of scent — a composition
+        that unfolds across time, the way light moves through deep water.
+      </p>
+      <footer class="mt-10 md:mt-14">
+        <cite class="font-jost text-[11px] uppercase tracking-[0.3em] text-stone not-italic">
+          — The Founding Perfumer, Paris 1994
+        </cite>
+      </footer>
+    </blockquote>
+    <div class="flex justify-center mt-10 md:mt-14 reveal" aria-hidden="true">
+      <div class="h-[1px] w-14 bg-gold"></div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════════════════════════
+     8.  COLLECTION GRID
+════════════════════════════════════════════════════════════════════════ -->
+<section id="collection"
+         aria-labelledby="collection-heading"
+         class="w-full bg-noir border-t border-white/5"
+         style="padding:var(--section-py) var(--gutter)">
+  <div class="max-w-screen-xl mx-auto">
+
+    <div class="text-center mb-14 md:mb-24 reveal">
+      <h2 id="collection-heading"
+          class="font-serif text-ivory font-light tracking-tight mb-4 md:mb-5"
+          style="font-size:clamp(1.75rem,5vw,4.5rem);">The Private Collection</h2>
+      <p class="font-jost text-stone uppercase tracking-[0.35em] text-[11px] font-light">
+        Exquisite extraits de parfum
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 lg:gap-10">
+
+      <!-- Eau de Nuit -->
+      <article class="group relative flex flex-col bg-transparent border border-white/5 glow-border reveal">
+        <div class="overflow-hidden relative" style="aspect-ratio:3/4">
+          <div class="absolute inset-0 fragrance-card-gradient z-10 opacity-60
+                      group-hover:opacity-35 transition-opacity duration-700"
+               aria-hidden="true"></div>
+          <img loading="lazy"
+               alt="Eau de Nuit — a minimalist black glass perfume bottle in dramatic low-key lighting"
+               class="w-full h-full object-cover grayscale transition-transform duration-1000 group-hover:scale-110"
+               src="https://lh3.googleusercontent.com/aida-public/AB6AXuBLlnsY8BaxFCR_nLZpE6sfzjyZwyHa8lSQBNodjC0fLMTEkq1flzKSz2LfpBUoPGslbTFMPOqkgQD47hv-wsM3DARadNriDcO-OGhCYSWL5_hl2cybuQH0ETZPkGJYnFoNfOIcQ5YENysZZhXJHHERlcDPPeZliBHtQkX2z0Ipy49y0airWvFDkOIRgKFhT6qglWrzmOD5pUasJJ0WZkKrBs1v-KU9vH-Dp0Avu-r21jP_dZhX9oCmZImgGpyTOvYj6SAxqN1x7uo"/>
+        </div>
+        <div class="card-pad p-6 md:p-8 lg:p-10 text-center relative z-20 flex flex-col items-center">
+          <h3 class="font-serif text-2xl md:text-3xl text-ivory mb-3 font-light">Eau de Nuit</h3>
+          <div class="flex flex-col gap-1 items-center">
+            <span class="font-jost text-[11px] text-stone tracking-[0.3em] uppercase font-light">100 ml</span>
+            <span class="font-jost text-sm text-stone font-light mt-1">€ 240</span>
+          </div>
+          <button aria-label="Discover Eau de Nuit"
+                  class="mt-6 md:mt-8 opacity-0 translate-y-4
+                         group-hover:opacity-100 group-hover:translate-y-0
+                         transition-all duration-500
+                         text-gold text-[10px] tracking-[0.3em] uppercase font-light
+                         border-b border-gold/35 pb-1 hover:border-gold">Discover</button>
+        </div>
+      </article>
+
+      <!-- Ombre Sauvage -->
+      <article class="group relative flex flex-col bg-transparent border border-white/5 glow-border reveal"
+               style="transition-delay:120ms">
+        <div class="overflow-hidden relative" style="aspect-ratio:3/4">
+          <div class="absolute inset-0 fragrance-card-gradient z-10 opacity-60
+                      group-hover:opacity-35 transition-opacity duration-700"
+               aria-hidden="true"></div>
+          <img loading="lazy"
+               alt="Ombre Sauvage — deep charcoal perfume packaging with atmospheric dark-room lighting"
+               class="w-full h-full object-cover grayscale transition-transform duration-1000 group-hover:scale-110"
+               src="https://lh3.googleusercontent.com/aida-public/AB6AXuBCwFdSpMYFP4UkM5GbJyNVRVUIswtQQ09iCkhINtSN5tlSEJ8oDvIpaPlvDeaKlqp18qxtdjojLT17Po85BmHiWphRK85_1Be3DE1W7PmSzOSC-nun2DeVW_14QT6ciYcT3J43r3hs_vclZq2o9NBZMovgNfH1DncqFHXcveH_JxyJk-82FdNH2NSQKE0m2PCi_rBxeR1GCcKKm9ZXQF8xYH2ywTnZjN_eE2UJs_B39dYTzOpmQtR27c4WWQO6YbsHfgGEhlS00UA"/>
+        </div>
+        <div class="card-pad p-6 md:p-8 lg:p-10 text-center relative z-20 flex flex-col items-center">
+          <h3 class="font-serif text-2xl md:text-3xl text-ivory mb-3 font-light">Ombre Sauvage</h3>
+          <div class="flex flex-col gap-1 items-center">
+            <span class="font-jost text-[11px] text-stone tracking-[0.3em] uppercase font-light">100 ml</span>
+            <span class="font-jost text-sm text-stone font-light mt-1">€ 240</span>
+          </div>
+          <button aria-label="Discover Ombre Sauvage"
+                  class="mt-6 md:mt-8 opacity-0 translate-y-4
+                         group-hover:opacity-100 group-hover:translate-y-0
+                         transition-all duration-500
+                         text-gold text-[10px] tracking-[0.3em] uppercase font-light
+                         border-b border-gold/35 pb-1 hover:border-gold">Discover</button>
+        </div>
+      </article>
+
+      <!-- Sillage Noir — spans 2 cols on tablet to avoid orphan -->
+      <article class="group relative flex flex-col bg-transparent border border-white/5 glow-border reveal
+                      md:col-span-2 lg:col-span-1"
+               style="transition-delay:240ms">
+        <div class="overflow-hidden relative" style="aspect-ratio:3/4">
+          <div class="absolute inset-0 fragrance-card-gradient z-10 opacity-60
+                      group-hover:opacity-35 transition-opacity duration-700"
+               aria-hidden="true"></div>
+          <img loading="lazy"
+               alt="Sillage Noir — a luxury black glass bottle resting on a dark textured surface"
+               class="w-full h-full object-cover grayscale transition-transform duration-1000 group-hover:scale-110"
+               src="https://lh3.googleusercontent.com/aida-public/AB6AXuCgzpQQQXbR9WiX_z8bj3rvFdjzoQLFvR7jaNeMm2oIzGosVzLAanc8w4Y1TTLHkI2LLXE7qN78TsJV3H1QKa-OIgXtSAZ8MeKEnzBWIxUzcR36QvRnBWgY1-FMr2OYgedMdkUtXcdl-1qIpG5OONNNcZ3bRHDIIfC5pgqKHN36u62w25z36pu_Qw4yRNXTq7MtK45kAWv7I4lK4sRnYNJmQTy_qfIQ6yOo6am5oUCu0_WEYFVI9SzSfxUIe4STEagb1zHHZMgwuHA"/>
+        </div>
+        <div class="card-pad p-6 md:p-8 lg:p-10 text-center relative z-20 flex flex-col items-center">
+          <h3 class="font-serif text-2xl md:text-3xl text-ivory mb-3 font-light">Sillage Noir</h3>
+          <div class="flex flex-col gap-1 items-center">
+            <span class="font-jost text-[11px] text-stone tracking-[0.3em] uppercase font-light">100 ml</span>
+            <span class="font-jost text-sm text-stone font-light mt-1">€ 240</span>
+          </div>
+          <button aria-label="Discover Sillage Noir"
+                  class="mt-6 md:mt-8 opacity-0 translate-y-4
+                         group-hover:opacity-100 group-hover:translate-y-0
+                         transition-all duration-500
+                         text-gold text-[10px] tracking-[0.3em] uppercase font-light
+                         border-b border-gold/35 pb-1 hover:border-gold">Discover</button>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════════════════════════
+     9.  CALL-TO-ACTION
+════════════════════════════════════════════════════════════════════════ -->
+<section id="cta"
+         aria-labelledby="cta-heading"
+         class="relative w-full flex items-center justify-center overflow-hidden border-t border-white/5"
+         style="min-height:72vh; padding:var(--section-py) var(--gutter)">
+
+  <div class="absolute inset-0 z-0 pointer-events-none" aria-hidden="true">
+    <div class="absolute inset-0 bg-gradient-to-b from-noir via-transparent to-noir opacity-80"></div>
+    <div class="w-full h-full"
+         style="background:radial-gradient(ellipse at center,rgba(201,169,110,0.04) 0%,transparent 65%)"></div>
+  </div>
+
+  <div class="relative z-10 w-full max-w-3xl mx-auto text-center">
+    <div class="flex justify-center mb-10 md:mb-14 reveal" aria-hidden="true">
+      <div class="h-[1px] w-10 bg-gold/50"></div>
+    </div>
+    <h2 id="cta-heading"
+        class="font-serif text-ivory font-light leading-[1.1] mb-6 md:mb-8 reveal"
+        style="font-size:clamp(1.75rem,7vw,5rem); letter-spacing:-0.01em;">
+      Experience<br/>the collection
+    </h2>
+    <p class="font-jost text-stone font-light text-sm md:text-base tracking-[0.3em]
+              max-w-xs md:max-w-sm mx-auto leading-relaxed mb-10 md:mb-14 reveal">
+      Complimentary discovery set with your first order
+    </p>
+    <div class="reveal px-6 md:px-0">
+      <button class="btn-discovery border border-gold text-gold
+                     font-jost text-[11px] tracking-[0.32em] uppercase
+                     px-10 md:px-14 py-4 md:py-[18px]
+                     w-full sm:w-auto">
+        <span class="btn-text">DISCOVER MORE</span>
+      </button>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════════════════════════
+     10. FOOTER
+════════════════════════════════════════════════════════════════════════ -->
+<footer class="bg-noir border-t" style="border-color:rgba(201,169,110,0.1)">
+  <div class="flex flex-col md:flex-row justify-between items-center gap-6 md:gap-8
+              w-full max-w-screen-xl mx-auto
+              px-5 md:px-10 lg:px-12 py-10 md:py-14
+              text-center md:text-left">
+
+    <a href="#hero"
+       class="font-serif text-base text-gold uppercase tracking-[0.3em] font-light flex-shrink-0"
+       aria-label="Noir Absolu — return to top">
+      Noir Absolu
+    </a>
+
+    <nav aria-label="Footer navigation"
+         class="footer-links flex flex-wrap justify-center gap-4 md:gap-7">
+      <a href="#" class="font-jost text-[10px] tracking-[0.3em] font-light uppercase
+                         text-stone hover:text-gold transition-colors duration-300">Privacy Policy</a>
+      <a href="#" class="font-jost text-[10px] tracking-[0.3em] font-light uppercase
+                         text-stone hover:text-gold transition-colors duration-300">Terms of Service</a>
+      <a href="#" class="font-jost text-[10px] tracking-[0.3em] font-light uppercase
+                         text-stone hover:text-gold transition-colors duration-300">Shipping &amp; Returns</a>
+      <a href="#" class="font-jost text-[10px] tracking-[0.3em] font-light uppercase
+                         text-stone hover:text-gold transition-colors duration-300">Contact</a>
+    </nav>
+
+    <small class="font-jost text-[10px] tracking-[0.3em] font-light uppercase flex-shrink-0"
+           style="color:rgba(168,159,148,0.45)">
+      © 2024 Noir Absolu Fragrances
+    </small>
+  </div>
+</footer>
+
+
+<!-- ════════════════════════════════════════════════════════════════════════
+     JAVASCRIPT
+════════════════════════════════════════════════════════════════════════ -->
+<script>
+  /* ── 1. PRELOADER ───────────────────────────────────────────────────── */
+  const preloader = document.getElementById('preloader');
+  const heroEl    = document.getElementById('hero');
+
+  function dismissPreloader() {
+    preloader.classList.add('hidden');
+    document.body.classList.remove('is-loading');
+    setTimeout(() => heroEl.classList.add('hero-ready'), 350);
+    preloader.addEventListener('transitionend', () => preloader.remove(), { once: true });
+  }
+  if (document.readyState === 'complete') setTimeout(dismissPreloader, 2000);
+  else window.addEventListener('load', () => setTimeout(dismissPreloader, 2000));
+
+
+  /* ── 2. CURSOR GLOW  (fine pointer / desktop only) ──────────────────── */
+  const glowEl = document.getElementById('cursor-glow');
+  if (window.matchMedia('(pointer: fine)').matches) {
+    let gx = 0, gy = 0, rafId = null;
+    const moveGlow = () => {
+      glowEl.style.transform = `translate(calc(${gx}px - 50%), calc(${gy}px - 50%))`;
+      rafId = null;
+    };
+    document.addEventListener('mousemove', e => {
+      gx = e.clientX; gy = e.clientY;
+      if (!rafId) rafId = requestAnimationFrame(moveGlow);
+    });
+    document.addEventListener('mouseenter', () => glowEl.classList.add('active'));
+    document.addEventListener('mouseleave', () => glowEl.classList.remove('active'));
+  } else {
+    glowEl.remove();
+  }
+
+
+  /* ── 3. HAMBURGER MENU ──────────────────────────────────────────────── */
+  const menuToggle  = document.getElementById('menu-toggle');
+  const mobileMenu  = document.getElementById('mobile-menu');
+  const menuOverlay = document.getElementById('menu-overlay');
+
+  function openMenu() {
+    mobileMenu.classList.add('open');
+    menuOverlay.classList.add('open');
+    menuToggle.setAttribute('aria-expanded', 'true');
+    mobileMenu.setAttribute('aria-hidden', 'false');
+    menuOverlay.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+    const firstLink = mobileMenu.querySelector('a');
+    if (firstLink) firstLink.focus();
+  }
+  function closeMenu() {
+    mobileMenu.classList.remove('open');
+    menuOverlay.classList.remove('open');
+    menuToggle.setAttribute('aria-expanded', 'false');
+    mobileMenu.setAttribute('aria-hidden', 'true');
+    menuOverlay.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+    menuToggle.focus();
+  }
+
+  menuToggle.addEventListener('click', () => {
+    menuToggle.getAttribute('aria-expanded') === 'true' ? closeMenu() : openMenu();
+  });
+  menuOverlay.addEventListener('click', closeMenu);
+  mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeMenu(); });
+
+
+  /* ── 4. NAV — frosted glass on scroll ──────────────────────────────── */
+  const navEl = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    navEl.classList.toggle('scrolled', window.scrollY > 72);
+  }, { passive: true });
+
+
+  /* ── 5. PARALLAX "ABSOLU" — horizontal ─────────────────────────────── */
+  const parallaxWord    = document.getElementById('parallax-word');
+  const parallaxSection = document.getElementById('parallax-absolu');
+
+  function tickParallax() {
+    const rect = parallaxSection.getBoundingClientRect();
+    const vh   = window.innerHeight;
+    if (rect.bottom < -200 || rect.top > vh + 200) return;
+    const progress  = (vh - rect.top) / (vh + rect.height);
+    const maxTravel = window.innerWidth < 768 ? 60 : 240;
+    const offset    = (progress - 0.5) * maxTravel;
+    parallaxWord.style.transform = `translateX(${offset.toFixed(1)}px)`;
+  }
+  window.addEventListener('scroll', tickParallax, { passive: true });
+  window.addEventListener('resize', tickParallax, { passive: true });
+  tickParallax();
+
+
+  /* ── 6. SCROLL REVEAL — 120ms stagger ──────────────────────────────── */
+  const STAGGER = 120;
+  const revealObs = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      const pending = Array.from(
+        entry.target.parentElement.querySelectorAll('.reveal:not(.is-visible)')
+      );
+      pending.forEach((el, i) => {
+        if (!el.dataset.revealDelaySet) {
+          el.style.transitionDelay = `${i * STAGGER}ms`;
+          el.dataset.revealDelaySet = '1';
+        }
+        el.classList.add('is-visible');
+      });
+      revealObs.unobserve(entry.target);
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -52px 0px' });
+
+  document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
+</script>
+
+</body>
+</html>

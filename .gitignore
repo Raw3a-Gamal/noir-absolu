@@ -1,0 +1,9 @@
+# Stitch-generated source files (assembled into index.html)
+noir_absolu_*/
+
+# Claude internal
+.claude/
+
+# OS
+.DS_Store
+Thumbs.db
