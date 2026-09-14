@@ -148,5 +148,5 @@ This is a **freelance portfolio concept project** — not affiliated with any re
 ---
 
 <p align="center">
-  <sub>Designed &amp; built by <a href="https://github.com/Raw3a-Gamal">@Raw3a-Gamal</a> · 2024</sub>
+  <sub>Designed &amp; built by <a href="https://github.com/Raw3a-Gamal">@Raw3a-Gamal</a> · 2026</sub>
 </p>
